@@ -1,7 +1,11 @@
-import '../styles/globals.css'
+import "sanitize.css";
+import GlobalStyle from "styles/GlobalStyle";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
-
-export default MyApp
