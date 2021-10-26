@@ -1,1 +1,43 @@
-Hello
+import Layout from "layouts/Portfolio";
+
+export const meta = {
+  title: "Sustainably",
+  description: "The Sustainably app",
+  link: "https://www.sustainably.co/"
+};
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+## What is it?
+
+Sustainably is a charity giving app for Android and iOS. We allow users to make monthly payments or round-up their spending and contribute to charities.
+
+## What did I contribute?
+
+When I joined Sustainably in 2020 there was a basic React-web app shipped inside an Expo wrapper that wasn't fit for purpose. Over the course of the last year I oversaw many upgrades to our platform including:
+
+- Upgrading to Capacitor to allow communication with a rich ecosystem of native APIs
+- Implementing Branch deep links to allow external links and install attribution
+- Migrate away fully from redux to a much simpler react-query based system
+- Create a shared component library that we could use across all of our web apps
+- Migrating to styled-components and removing a complicated mix of css modules and sass
+- Creating a powerful deployment system using Github actions and App Center CodePush generate builds for testing and release.
+
+## Tech stack
+
+- React
+- Capacitor
+- AWS Amplify
+- react-query
+- framer-motion
+- vite.js
+
+## External services
+
+- Branch.io
+- Sentry (Error reporting)
+- App Center CodePush
+- OneSignal (Push notifications)
+- Mixpanel
+- Stripe
+- TrueLayer (Open Banking API)

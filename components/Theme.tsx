@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ThemeProps {
-  readonly name: "white" | "blue" | "pink";
+  readonly name: "white" | "black" | "blue" | "pink";
 }
 
 export const Theme = styled.div<ThemeProps>`
@@ -19,6 +19,18 @@ export const Theme = styled.div<ThemeProps>`
           --rgb-highlight: var(--rgb-pink);
           --rgb-contrast: var(--rgb-black);
           --rgb-background: var(--rgb-white);
+        `;
+      case "black":
+        return css`
+          --hex-primary: var(--hex-blue);
+          --hex-highlight: var(--hex-pink);
+          --hex-contrast: var(--hex-white);
+          --hex-background: var(--hex-black);
+
+          --rgb-primary: var(--rgb-blue);
+          --rgb-highlight: var(--rgb-pink);
+          --rgb-contrast: var(--rgb-white);
+          --rgb-background: var(--rgb-black);
         `;
 
       case "blue":

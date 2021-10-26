@@ -1,7 +1,8 @@
 import "sanitize.css";
+
 import GlobalStyle from "styles/GlobalStyle";
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />

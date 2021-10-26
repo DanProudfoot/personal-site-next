@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-import { Page } from "components/Layout/Layout";
-import HomeHeader from "sections/HomeHeader/HomeHeader";
-import Footer from "sections/Footer/Footer";
-import Intro from "sections/Intro/Intro";
-import HomeItems from "sections/HomeItems/HomeItems";
+import { Page } from "components/Page";
+import Footer from "sections/Footer";
+import HomeHeader from "sections/Home/HomeHeader";
+import HomeIntro from "sections/Home/HomeIntro";
+import HomeItems from "sections/Home/HomeItems";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
 
       <HomeHeader />
 
-      <Intro />
+      <HomeIntro />
 
       <HomeItems />
 

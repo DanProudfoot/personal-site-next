@@ -1,13 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+
+type Edges = "top" | "bottom" | "right" | "both";
+type Shadow = "dark" | "light";
+type JaggedEdgeProps = {
+  edge?: Edges;
+  shadow?: Shadow;
+  background?: boolean;
+  children: React.ReactNode;
+};
 
 export function JaggedEdge({
   edge = "both",
   shadow,
-  background = false,
+  background,
   children
-}) {
+}: JaggedEdgeProps) {
   return (
     <Jagged shadow={shadow} edge={edge}>
       <Mask background={background} edge={edge}>
@@ -17,13 +25,12 @@ export function JaggedEdge({
   );
 }
 
-JaggedEdge.propTypes = {
-  edge: PropTypes.oneOf(["top", "bottom", "both"]),
-  shadow: PropTypes.oneOf(["dark", "light"]),
-  children: PropTypes.node
-};
+interface StyledJaggedProps {
+  readonly shadow: Shadow;
+  readonly edge: Edges;
+}
 
-const Jagged = styled.div`
+const Jagged = styled.div<StyledJaggedProps>`
   position: relative;
   z-index: 5;
 
@@ -32,17 +39,30 @@ const Jagged = styled.div`
       case "top":
         return css`
           margin-top: -30px;
+          --shadow-x: 0px;
+          --shadow-y: -30px;
         `;
 
       case "bottom":
         return css`
           margin-bottom: -30px;
+          --shadow-x: 0px;
+          --shadow-y: 30px;
+        `;
+
+      case "right":
+        return css`
+          margin-right: -30px;
+          --shadow-x: 30px;
+          --shadow-y: 0px;
         `;
 
       case "both":
         return css`
           margin-top: -30px;
           margin-bottom: -30px;
+          --shadow-x: 0px;
+          --shadow-y: 30px;
         `;
 
       default:
@@ -54,37 +74,30 @@ const Jagged = styled.div`
     switch (props.shadow) {
       case "dark":
         return css`
-          filter: drop-shadow(0px 20px 0 rgba(var(--rgb-black), 0.06))
-            drop-shadow(0px -20px 0 rgba(var(--rgb-black), 0.06));
+          filter: drop-shadow(
+            var(--shadow-x) var(--shadow-y) 0 rgba(var(--rgb-black), 0.06)
+          );
         `;
 
       case "light":
         return css`
-          filter: drop-shadow(0px 20px 0 rgba(var(--rgb-white), 0.06))
-            drop-shadow(0px -20px 0 rgba(var(--rgb-white), 0.06));
+          filter: drop-shadow(
+            var(--shadow-x) var(--shadow-y) 0 rgba(var(--rgb-white), 0.06)
+          );
         `;
 
       default:
         return null;
     }
-  }} /* &:nth-child(1) {
-		z-index: 5;
-	}
-	&:nth-child(2) {
-		z-index: 4;
-	}
-	&:nth-child(3) {
-		z-index: 3;
-	}
-	&:nth-child(4) {
-		z-index: 2;
-	}
-	&:nth-child(5) {
-		z-index: 1;
-	} */
+  }}
 `;
 
-const Mask = styled.div`
+interface StyledMaskProps {
+  readonly background: boolean;
+  readonly edge: Edges;
+}
+
+const Mask = styled.div<StyledMaskProps>`
   ${props =>
     props.background &&
     css`
@@ -117,6 +130,17 @@ const Mask = styled.div`
           & > * {
             padding-bottom: 30px;
           }
+        `;
+
+      case "right":
+        return css`
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 60'%3E%3Cpath fill='%23fff' d='M30 30 0 0v60l30-30Z'/%3E%3C/svg%3E"),
+            linear-gradient(to left, transparent 30px, black 30px);
+          mask-size: 30px 60px, 100% 100%;
+          mask-repeat: repeat-y, no-repeat;
+          mask-position: right;
+
+          padding-right: 30px;
         `;
 
       case "both":

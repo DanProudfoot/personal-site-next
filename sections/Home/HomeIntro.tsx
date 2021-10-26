@@ -2,18 +2,19 @@ import styled from "styled-components";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { Section } from "components/Layout/Layout";
 import {
   Heading,
   Paragraph,
   ExternalLink,
   InternalLink
-} from "components/Text/Text";
+} from "components/Text";
 import { Theme } from "components/Theme";
+import { Section } from "components/Page";
+import { Col, Row } from "components/Grid";
 
 import portrait from "public/images/dan_portrait_duo.jpg";
 
-export default function Intro() {
+export default function HomeIntro() {
   return (
     <Theme name="white">
       <Section>
@@ -45,22 +46,9 @@ export default function Intro() {
   );
 }
 
-const Row = styled.div`
-  display: grid;
-  grid-template-columns: [col-1] 2fr [col-2] 1fr;
-  gap: 4rem;
-`;
-
-const Col = styled.div`
-  grid-column: ${props => props.column};
-`;
-
 const ImageOuter = styled(motion.div)`
   overflow: hidden;
   border-radius: 60px;
-
-  /* border: solid 8px var(--hex-highlight); */
-  /* filter: drop-shadow(20px 20px 0px rgba(var(--rgb-primary), 0.2)); */
 
   & > * {
     display: block !important;

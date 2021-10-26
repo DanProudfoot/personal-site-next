@@ -2,6 +2,17 @@ import styled from "styled-components";
 
 import externalIcon from "public/icons/external_link.svg";
 
+export const Headline = styled.h2`
+  margin: 0;
+
+  color: var(--hex-primary);
+
+  line-height: 0.8em;
+  font-size: 4.5rem;
+
+  font-weight: 700;
+`;
+
 export const Heading = styled.h2`
   font-size: 3rem;
 

@@ -1,9 +1,10 @@
-import { JaggedEdge } from "components/JaggedEdge/JaggedEdge";
 import styled from "styled-components";
+
+import { JaggedEdge } from "components/JaggedEdge";
 
 export default function Footer() {
   return (
-    <JaggedEdge edge="top">
+    <JaggedEdge edge="top" shadow="dark">
       <Content>Built in Next.js by Dan Proudfoot. 2021</Content>
     </JaggedEdge>
   );

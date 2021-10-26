@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { JaggedEdge } from "components/JaggedEdge/JaggedEdge";
+import { JaggedEdge } from "components/JaggedEdge";
 import { Theme } from "components/Theme";
 
 const containerVariants = {
