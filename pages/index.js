@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 import { Page, Section } from "components/Page";
 import Footer from "sections/Footer";
@@ -45,9 +46,25 @@ const freelancePages = [
   }
 ];
 
+const pageVariants = {
+  initial: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.6
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.6
+    }
+  }
+};
+
 export default function Home() {
   return (
-    <Page>
+    <Page as={motion.main} variants={pageVariants}>
       <Head>
         <title>Home | Dan Proudfoot</title>
         <meta

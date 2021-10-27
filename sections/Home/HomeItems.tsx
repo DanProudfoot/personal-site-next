@@ -9,7 +9,7 @@ export default function HomeItems({ title, pages }) {
       <Heading>{title}</Heading>
       <LinkWrapper>
         {pages.map(item => (
-          <Link key={item.url} href={item.url} passHref>
+          <Link scroll={false} key={item.url} href={item.url} passHref>
             <PortfolioLink>
               <Date>{item.when}</Date> <Name>{item.name}</Name>
             </PortfolioLink>

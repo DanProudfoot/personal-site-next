@@ -6,6 +6,36 @@ import { Theme } from "components/Theme";
 import { Page, Section } from "components/Page";
 import styled from "styled-components";
 import { Headline, Paragraph } from "components/Text";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  initial: {},
+  enter: {
+    transition: {
+      staggerChildren: 0.2
+    }
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: -1
+    }
+  }
+};
+
+const panelVariants = {
+  initial: {
+    x: "-100%"
+  },
+  enter: {
+    x: "0%",
+    transition: { type: "spring", bounce: 0.1 }
+  },
+  exit: {
+    x: "-100%",
+    transition: { type: "spring", bounce: 0.2 }
+  }
+};
 
 type PortfolioProps = {
   children: React.ReactNode;
@@ -19,55 +49,61 @@ type PortfolioProps = {
 
 export default function Portfolio({ children, meta }: PortfolioProps) {
   return (
-    <Page>
+    <Page variants={containerVariants}>
       <Head>
         <title>{meta.title} | Dan Proudfoot</title>
         <meta name="description" content={meta.description || meta.title} />
       </Head>
 
-      <Theme name="pink">
-        <TextContentContainer>
-          <JaggedEdge edge="right" background shadow="light">
-            <TextContent>
-              <Headline>{meta.title}</Headline>
-              <Paragraph>{meta.when}</Paragraph>
-              <MDXContent>{children}</MDXContent>
-            </TextContent>
-          </JaggedEdge>
-        </TextContentContainer>
-      </Theme>
+      <Container>
+        <Panel style={{ gridColumn: "1 / span 2" }} variants={panelVariants}>
+          <Theme name="black">
+            <MediaContentContainer>
+              <JaggedEdge background edge="right" shadow="dark">
+                <MediaContent></MediaContent>
+              </JaggedEdge>
+            </MediaContentContainer>
+          </Theme>
+        </Panel>
 
-      <Theme name="black">
-        <MediaContentContainer>
-          <JaggedEdge background edge="right" shadow="dark">
-            <MediaContent></MediaContent>
-          </JaggedEdge>
-        </MediaContentContainer>
-      </Theme>
+        <Panel style={{ gridColumn: "1" }} variants={panelVariants}>
+          <Theme name="pink">
+            <JaggedEdge edge="right" background shadow="light">
+              <TextContentContainer>
+                <TextContent>
+                  <Headline>{meta.title}</Headline>
+                  <Paragraph>{meta.when}</Paragraph>
+                  <MDXContent>{children}</MDXContent>
+                </TextContent>
+              </TextContentContainer>
+            </JaggedEdge>
+          </Theme>
+        </Panel>
+      </Container>
     </Page>
   );
 }
 
-const TextContentContainer = styled.div`
-  width: 50vw;
-  max-width: 960px;
-  min-width: 480px;
+const Container = styled(motion.div)`
+  display: grid;
+  grid-template-columns: 6fr 4fr 1fr;
+`;
+
+const Panel = styled(motion.div)`
+  grid-row: 1;
 
   position: relative;
-  z-index: 2;
 `;
 
-const MediaContentContainer = styled.div`
-  width: 50vw;
+const TextContentContainer = styled.div`
   max-width: 960px;
-  min-width: 480px;
+  width: 100%;
+  margin-left: auto;
 
-  position: absolute;
-  left: 45vw;
-  top: 0;
-
-  z-index: 1;
+  position: relative;
 `;
+
+const MediaContentContainer = styled.div``;
 
 const TextContent = styled(Section)`
   min-height: 100vh;

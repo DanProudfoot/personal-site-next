@@ -2,12 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import {
-  Heading,
-  Paragraph,
-  ExternalLink,
-  InternalLink
-} from "components/Text";
+import { Heading, Paragraph, ExternalLink } from "components/Text";
 import { Theme } from "components/Theme";
 import { Section } from "components/Page";
 import { Col, Row } from "components/Grid";

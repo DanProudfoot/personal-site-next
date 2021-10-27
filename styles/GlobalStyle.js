@@ -17,6 +17,8 @@ export default createGlobalStyle`
 
   body {
     min-height: 100vh;
+
+    overflow-x: hidden;
   }
 
   img {

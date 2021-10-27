@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Page = styled.main`
+export const Page = styled(motion.main).attrs({
+  initial: "initial",
+  animate: "enter",
+  exit: "exit"
+})`
   min-height: 100vh;
 
   background-color: var(--hex-white);
