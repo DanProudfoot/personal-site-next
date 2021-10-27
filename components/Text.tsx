@@ -21,6 +21,8 @@ export const Heading = styled.h2`
   color: var(--hex-primary);
 
   margin: 0;
+
+  line-height: 1.1em;
 `;
 
 export const Paragraph = styled.p`

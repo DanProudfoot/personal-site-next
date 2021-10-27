@@ -5,7 +5,7 @@ import { JaggedEdge } from "components/JaggedEdge";
 import { Theme } from "components/Theme";
 import { Page, Section } from "components/Page";
 import styled from "styled-components";
-import { Headline } from "components/Text";
+import { Headline, Paragraph } from "components/Text";
 
 type PortfolioProps = {
   children: React.ReactNode;
@@ -13,6 +13,7 @@ type PortfolioProps = {
     description: string;
     title: string;
     media: string[];
+    when: string;
   };
 };
 
@@ -26,9 +27,10 @@ export default function Portfolio({ children, meta }: PortfolioProps) {
 
       <Theme name="pink">
         <TextContentContainer>
-          <JaggedEdge edge="right" background shadow="dark">
+          <JaggedEdge edge="right" background shadow="light">
             <TextContent>
               <Headline>{meta.title}</Headline>
+              <Paragraph>{meta.when}</Paragraph>
               <MDXContent>{children}</MDXContent>
             </TextContent>
           </JaggedEdge>

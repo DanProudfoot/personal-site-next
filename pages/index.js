@@ -1,10 +1,49 @@
 import Head from "next/head";
 
-import { Page } from "components/Page";
+import { Page, Section } from "components/Page";
 import Footer from "sections/Footer";
 import HomeHeader from "sections/Home/HomeHeader";
 import HomeIntro from "sections/Home/HomeIntro";
 import HomeItems from "sections/Home/HomeItems";
+import { JaggedEdge } from "components/JaggedEdge";
+import { Theme } from "components/Theme";
+import { Col, Row } from "components/Grid";
+
+const workPages = [
+  {
+    name: "Sustainably",
+    url: "/career/sustainably",
+    when: "2020 - 2021",
+    icon: ""
+  },
+  {
+    name: "Kerve",
+    url: "/career/kerve",
+    when: "2017 - 2020",
+    icon: ""
+  },
+  {
+    name: "Unicorn Training",
+    url: "/career/unicorn",
+    when: "2015 - 2017",
+    icon: ""
+  }
+];
+
+const freelancePages = [
+  {
+    name: "Open Source",
+    url: "/work/open-source",
+    when: "2021",
+    icon: ""
+  },
+  {
+    name: "Funko Animation Studios",
+    url: "/work/funko",
+    when: "2018",
+    icon: ""
+  }
+];
 
 export default function Home() {
   return (
@@ -22,7 +61,20 @@ export default function Home() {
 
       <HomeIntro />
 
-      <HomeItems />
+      <Theme name="pink">
+        <JaggedEdge edge="top" shadow="dark" background>
+          <Section>
+            <Row>
+              <Col column="1">
+                <HomeItems title="Career" pages={workPages} />
+              </Col>
+              <Col column="2">
+                <HomeItems title="Personal work" pages={freelancePages} />
+              </Col>
+            </Row>
+          </Section>
+        </JaggedEdge>
+      </Theme>
 
       <Footer />
     </Page>

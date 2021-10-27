@@ -18,7 +18,7 @@ export default function HomeIntro() {
   return (
     <Theme name="white">
       <Section>
-        <Row>
+        <Row priority="left">
           <Col column="1">
             <Heading>Hi, I'm Dan.</Heading>
             <Paragraph>
@@ -32,7 +32,9 @@ export default function HomeIntro() {
               </ExternalLink>{" "}
               but I'm excited to explore new opportunities. Take a look around,
               and if you like what you see,{" "}
-              <InternalLink>contact me!</InternalLink>
+              <ExternalLink href="mailto:dan@danproudfoot.co.uk">
+                contact me!
+              </ExternalLink>
             </Paragraph>
           </Col>
           <Col column="2">
