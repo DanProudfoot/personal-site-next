@@ -25,14 +25,14 @@ const containerVariants = {
 
 const panelVariants = {
   initial: {
-    x: "-100%"
+    x: "-120%"
   },
   enter: {
     x: "0%",
     transition: { type: "spring", bounce: 0.1 }
   },
   exit: {
-    x: "-100%",
+    x: "-120%",
     transition: { type: "spring", bounce: 0.2 }
   }
 };

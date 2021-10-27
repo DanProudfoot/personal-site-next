@@ -1,5 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import splitbee from "@splitbee/web";
+
+splitbee.init({
+  scriptUrl: "/bee.js",
+  apiUrl: "/_hive"
+});
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
