@@ -12,6 +12,12 @@ import { Col, Row } from "components/Grid";
 
 const workPages = [
   {
+    name: "xDesign",
+    url: "/career/xdesign",
+    when: "2021 - ",
+    icon: ""
+  },
+  {
     name: "Sustainably",
     url: "/career/sustainably",
     when: "2020 - 2021",
@@ -32,12 +38,12 @@ const workPages = [
 ];
 
 const freelancePages = [
-  {
-    name: "Open Source",
-    url: "/work/open-source",
-    when: "2021",
-    icon: ""
-  },
+  // {
+  //   name: "Open Source",
+  //   url: "/work/open-source",
+  //   when: "2021",
+  //   icon: ""
+  // },
   {
     name: "Funko Animation Studios",
     url: "/work/funko",
@@ -51,13 +57,13 @@ const pageVariants = {
   enter: {
     opacity: 1,
     transition: {
-      duration: 0.6
+      duration: 0.4
     }
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.6
+      duration: 0.4
     }
   }
 };

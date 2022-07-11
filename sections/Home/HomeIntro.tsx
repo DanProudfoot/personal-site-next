@@ -22,13 +22,8 @@ export default function HomeIntro() {
             </Paragraph>
             <Paragraph>
               I currently work at{" "}
-              <ExternalLink target="_blank" href="https://www.sustainably.co/">
-                Sustainably
-              </ExternalLink>{" "}
-              but I'm excited to explore new opportunities. Take a look around,
-              and if you like what you see,{" "}
-              <ExternalLink href="mailto:dan@danproudfoot.co.uk">
-                contact me!
+              <ExternalLink target="_blank" href="https://www.xdesign.com/">
+                xDesign
               </ExternalLink>
             </Paragraph>
           </Col>

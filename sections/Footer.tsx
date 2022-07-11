@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <Theme name="black">
       <JaggedEdge edge="top" shadow="dark" background>
-        <Section style={{ padding: "5rem 2rem" }}>
+        <Section style={{ padding: "3rem 2rem" }}>
           <Content>Built in Next.js by Dan Proudfoot. 2021</Content>
         </Section>
       </JaggedEdge>
